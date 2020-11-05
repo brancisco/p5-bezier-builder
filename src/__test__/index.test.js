@@ -1,5 +1,11 @@
-import main from '../index'
+import { BezierShape, BezierShapeBuilder } from '../index'
 
-test('sample test to make sure things are set up', () => {
-    expect(main.greet()).toBe('hi')
+test('BezierShape is exported from index', () => {
+    const bez = new BezierShape()
+    expect(bez).toBeInstanceOf(BezierShape)
+})
+
+test('BezierShapeBuilder is exported from index', () => {
+    const bezBuilder = new BezierShapeBuilder()
+    expect(bezBuilder).toBeInstanceOf(BezierShapeBuilder)
 })
