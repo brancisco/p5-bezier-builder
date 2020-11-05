@@ -10,7 +10,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
   },
   devServer: {
-    publicPath: '/',
+    publicPath: '/demo/dist/',
     contentBase: path.resolve(__dirname, '..'),
     compress: true,
     port: 9000
