@@ -1,6 +1,5 @@
 <template>
-    <div>
-        <h1>Welcome to my app</h1>
+    <div id="app">
         <bezier-builder/>
     </div>
 </template>
@@ -11,21 +10,16 @@
     export default {
         components: {
             BezierBuilder
-        },
-        data () {
-            return {
-
-            } 
-        },
-        computed: {
-
-        },
-        methods: {
-
-        }    
+        }
     }
 </script>
 
-<style scoped>
-
+<style>
+    html, body {
+        padding: 0;
+        margin: 0;
+    }
+    #app {
+        font-family: 'Helvetica Neue'
+    }
 </style>

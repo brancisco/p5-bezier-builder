@@ -9,7 +9,9 @@ module.exports = {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
+  devtool: 'eval-source-map',
   devServer: {
+    hot: true,
     publicPath: '/demo/dist/',
     contentBase: path.resolve(__dirname, '..'),
     compress: true,
@@ -17,7 +19,31 @@ module.exports = {
   },
   module: {
     rules: [
-      { test: /\.vue$/, use: 'vue-loader' }
+      { test: /\.vue$/i, use: 'vue-loader' },
+      { test: /\.css$/i, use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              esModule: false
+            }
+          }
+        ]
+      },
+      {
+        test: /\.m?js$/i,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+            plugins: [
+              '@babel/plugin-proposal-class-properties',
+              '@babel/plugin-proposal-private-methods'
+            ],
+          }
+        }
+      }
     ]
   },
   resolve: {
