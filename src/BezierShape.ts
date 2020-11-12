@@ -29,7 +29,7 @@ class BezierShape {
     }
 
     /**
-     * Set the position of the bezier shape
+     * Set the position of the bezier shape (BOTTOM, LEFT CORNER is the origin)
      *
      * @param {number} x - The x position of the bezier
      * @param {number} y - The y position of the bezier
@@ -37,6 +37,8 @@ class BezierShape {
     setPosition (x: number, y: number): void {
         // if we haven't computed a rect yet, we can't set the position
         if (this.rect.includes(undefined)) return
+        // dont need to set the same position more than once
+        if (x === this.rect[3] && y === this.rect[2]) return
         const [t, r, b, l] = (this.rect as [number, number, number, number])
         const shiftX = x - l
         const shiftY = y - b
@@ -51,12 +53,16 @@ class BezierShape {
      * @param {number|null} [h=null] - The height of the bezier
      */
     setDim (w: number, h: number | null = null): void {
+        // if we haven't computed a rect yet, we can't set the dim
         if (this.rect.includes(undefined)) return
+        const dim = this.getDim()
+        // dont need to set the same dimensions more than once
+        if (w === dim[0] && h === dim[1]) return
         if (h === null) h = w
         const [t, r, b, l] = (this.rect as [number, number, number, number])
-        const width = Math.abs(r - l)
+        const width = (dim[0] as number)
         const scaleW = w/width
-        const height = Math.abs(b - t)
+        const height = (dim[1] as number)
         const scaleH = h/height
         const center = { x: l + w/2, y: t + h/2 }
 
