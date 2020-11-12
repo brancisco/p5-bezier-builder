@@ -212,9 +212,6 @@ class BezierShapeBuilder {
         if (this.buildMode === BuildMode.EDIT_POINT && hovering >= 0) {
             this.interacting = hovering
         }
-        else if (this.buildMode === BuildMode.MOVE) {
-            // eslint-disable-line 
-        }
     }
 
     /**
@@ -223,12 +220,13 @@ class BezierShapeBuilder {
     release (): void {
         if (this.buildMode === BuildMode.EDIT_POINT && this.state === InteractionState.Drag) {
             this.bezier.setVertex(this.interacting, this.currentMouse.x, this.currentMouse.y)
-            this.interacting = -1
-            this.state = InteractionState.Neutral
-        } else if (this.buildMode === BuildMode.MOVE && this.state == InteractionState.Drag) {
-            this.interacting = -1
-            this.state = InteractionState.Neutral
         }
+        else if (this.buildMode === BuildMode.MOVE && this.state == InteractionState.Drag) {
+            this.shift(this.currentMouse.x - this.lastMouse.x, this.currentMouse.y - this.lastMouse.y)
+        }
+
+        this.interacting = -1
+        this.state = InteractionState.Neutral
     }
 
     /**
