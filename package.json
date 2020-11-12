@@ -26,7 +26,7 @@
   "bugs": {
     "url": "https://github.com/brancisco/p5-bezier-builder/issues"
   },
-  "homepage": "https://github.com/brancisco/p5-bezier-builder#readme",
+  "homepage": "https://brancisco.github.io/p5-bezier-builder/",
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.12.3",
