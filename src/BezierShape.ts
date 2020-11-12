@@ -102,6 +102,12 @@ class BezierShape {
         return this.vertices[i]
     }
 
+
+    /**
+     * Get the rectangular boundary of the bezier
+     *
+     * @returns {Boundary} - In the form of [top, right, bottom, left]
+     */
     getRectangularBoundary (): Boundary {
         return [...this.rect]
     }
