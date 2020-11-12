@@ -123,7 +123,7 @@ shift (x: number, y: number = 0): void;
 
 ```ts
 /**
- * Set the position of the bezier shape
+ * Set the position of the bezier shape (BOTTOM, LEFT CORNER is the origin)
  *
  * @param {number} x - The x position of the bezier
  * @param {number} y - The y position of the bezier
@@ -278,6 +278,7 @@ insert (start: number, vertices: Vertices): void
 
 ## Todo
 
+- Add Feat: auto-close shape
 - Write tests
 - Make demo mobile friendly
 - Add demo functionality to save shapes to local storage
