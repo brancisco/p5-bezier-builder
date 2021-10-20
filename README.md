@@ -1,6 +1,12 @@
 # p5-bezier-builder
 A small library and tool to build complex bezier shapes for p5 sketches
 
+## Check out the demo webpage
+
+https://brancisco.github.io/p5-bezier-builder/
+
+![Example Image](./meta/img/example.png)
+
 ## Getting Started
 
 ### Installing
