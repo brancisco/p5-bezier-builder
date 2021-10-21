@@ -1,6 +1,6 @@
 {
   "name": "@brancisco/p5-bezier-builder",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A small library and tool to build complex bezier shapes for p5 sketches",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
